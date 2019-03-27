@@ -13,7 +13,13 @@ import items.food.Fruit;
 import items.food.Pastry;
 
 public class Application {
+    private static Application app = new Application();
+    public static Application getInstance() {
+        return app;
+    }
+
     public void example() throws BillException{
+
         Bill bill = new Bill();
         bill.print();
         Bottle pivo = new Bottle("pivo dobre",0.90,2);
@@ -25,6 +31,10 @@ public class Application {
         Goods pravitko = new Goods("Pravitko velke",1.50,1, Category.SCHOOL);
         bill.addItem(pravitko);
         Draft kofola = new Draft("Kofolka",1,true,0.5);
+        bill.end();
         bill.print();
+        System.out.println(bill.getCount());
+        System.out.println(bill.getFinalPrice());
+
     }
 }
