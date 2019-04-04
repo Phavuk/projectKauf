@@ -15,8 +15,9 @@ import java.util.List;
 public class Bill {
     private int count;
     private boolean open;
-
     private List<Item> list;
+    private double sum;
+    private Date date;
 
     public Bill() {
         this.list = new ArrayList<>();
@@ -38,6 +39,7 @@ public class Bill {
                 String message = "Bill is full, maximum is " + Globals.MAXITEMS + "items.";
                 throw new BillException(message);
             }
+
             list.add(item);
             count++;
         }
